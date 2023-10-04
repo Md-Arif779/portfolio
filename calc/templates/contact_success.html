@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        {% if success_message %}
+        {{ success_message }}
+        {% else %}
+        Your message has been successfully submitted. Thank you!
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
