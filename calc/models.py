@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils import timezone
+
+
 
 # Create your models here.
 # In your app's models.py (e.g., calc/models.py)
@@ -58,5 +61,30 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+
+
+from django.db import models
+
+class PortfolioItem(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='portfolio_images/')
+    category = models.CharField(max_length=10, default='Web')
+    description = models.TextField()
+    client = models.CharField(max_length=100, blank=True, null=True)
+    project_date = models.DateField(blank=True, null=True)
+    project_url = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.title} - {self.image.url}"
+
+
+
+
+
+
+
 
 

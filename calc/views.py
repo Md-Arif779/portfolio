@@ -1,5 +1,6 @@
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render, redirect
-from .models import Profile, About, Skill
+from .models import Profile, About, Skill, PortfolioItem
 from .forms import ContactForm
 # Create your views here.
 
@@ -7,10 +8,24 @@ from .forms import ContactForm
 def home(request):
     profile_data = Profile.objects.first()
     skills_data = Skill.objects.all()
+    about_data = About.objects.first()
+    
+
+    categories = ["Web", "App", "Card", "Software"]  
+    selected_category = request.GET.get("category", "All")
+
+    if selected_category == "All":
+        portfolio_items = PortfolioItem.objects.all()
+    else:
+        portfolio_items = PortfolioItem.objects.filter(category__iexact=selected_category)
 
     context = {
         'profile_data': profile_data,
         'skills_data': skills_data,
+        'about_data': about_data,
+        'portfolio_items': portfolio_items,
+        'categories': categories,
+        'selected_category': selected_category,
     }
     return render(request, 'home.html', context)
 
@@ -27,24 +42,55 @@ def about(request):
     
 
 def resume(request):
+    profile_data = Profile.objects.first()
 
-    return render(request, 'resume.html')
+    context = {
+        'profile_data': profile_data,
+    }
+
+    return render(request, 'resume.html', context)
+
 
 def portfolio(request):
+    profile_data = Profile.objects.first()
+    categories = ["Web", "App", "Card", "Software"]  
+    selected_category = request.GET.get("category", "All")
 
-    return render(request, 'portfolio.html')
+    if selected_category == "All":
+        portfolio_items = PortfolioItem.objects.all()
+    else:
+        portfolio_items = PortfolioItem.objects.filter(category__iexact=selected_category)
+
+    context = {
+        'profile_data': profile_data,
+        'portfolio_items': portfolio_items,
+        'categories': categories,
+        'selected_category': selected_category,
+    }
+    return render(request, 'portfolio.html', context)
+
+def portfolio_detail(request, pk):
+    
+    portfolio_item = get_object_or_404(PortfolioItem, pk=pk)
+
+    context = {
+        'portfolio_item': portfolio_item,
+    }
+
+    return render(request, 'portfolio_details.html', context)
+
 
 def service(request):
+    profile_data = Profile.objects.first()
 
-    return render(request, 'service.html')
-
-
-
-
-
+    context = {
+       'profile_data': profile_data, 
+    }
+    return render(request, 'service.html', context)
 
 
 def contact(request):
+    
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
