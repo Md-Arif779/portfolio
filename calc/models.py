@@ -66,11 +66,12 @@ class Skill(models.Model):
 
 
 
-from django.db import models
+
+
+
 
 class PortfolioItem(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='portfolio_images/')
     category = models.CharField(max_length=10, default='Web')
     description = models.TextField()
     client = models.CharField(max_length=100, blank=True, null=True)
@@ -78,7 +79,16 @@ class PortfolioItem(models.Model):
     project_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.title} - {self.image.url}"
+        return self.title
+
+class PortfolioImage(models.Model):
+    portfolio_item = models.ForeignKey(PortfolioItem, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='portfolio_images/')
+
+    def __str__(self):
+        return self.portfolio_item.title
+
+
 
 
 

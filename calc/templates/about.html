@@ -98,28 +98,34 @@
   <div class="container">
     <div class="section-title">
       <h2>Skills</h2>
-      <p></p>
+      <p>What I Offer</p>
     </div>
 
     <div class="row skills-content">
-      {% for skill in skills_data %}
-      <div class="col-lg-6" data-aos="fade-up">
-        <div class="skill-item">
-          <img src="{{ skill.icon_image.url }}" alt="{{ skill.name }} Icon" class="skill-icon">
-          <div class="skill-info">
-            <span class="skill-name">{{ skill.name }}</span>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: {{ skill.percentage }}%;" aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-              <span class="progress-val">{{ skill.percentage }}%</span>
+      {% if skills_data %}
+        {% for skill in skills_data %}
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="skill-item">
+              <img src="{{ skill.icon_image.url }}" alt="{{ skill.name }} Icon" class="skill-icon">
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: {{ skill.percentage }}%;" aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <span class="progress-val">{{ skill.percentage }}%</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+      {% else %}
+        <p>No skills data available.</p>
+      {% endif %}
     </div>
   </div>
 </section>
 <!-- End Skills Section -->
+
+
 
     </main>
 {% endblock %}

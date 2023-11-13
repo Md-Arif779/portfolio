@@ -53,8 +53,9 @@ def resume(request):
 
 def portfolio(request):
     profile_data = Profile.objects.first()
-    categories = ["Web", "App", "Card", "Software"]  
+    categories = ["Web", "App", "Card", "Software"]
     selected_category = request.GET.get("category", "All")
+    
 
     if selected_category == "All":
         portfolio_items = PortfolioItem.objects.all()
@@ -62,19 +63,22 @@ def portfolio(request):
         portfolio_items = PortfolioItem.objects.filter(category__iexact=selected_category)
 
     context = {
-        'profile_data': profile_data,
         'portfolio_items': portfolio_items,
         'categories': categories,
         'selected_category': selected_category,
+        'profile_data': profile_data,
     }
+
     return render(request, 'portfolio.html', context)
 
 def portfolio_detail(request, pk):
-    
     portfolio_item = get_object_or_404(PortfolioItem, pk=pk)
+    profile_data = Profile.objects.first()
 
     context = {
         'portfolio_item': portfolio_item,
+        'profile_data': profile_data,
+        
     }
 
     return render(request, 'portfolio_details.html', context)
@@ -90,7 +94,7 @@ def service(request):
 
 
 def contact(request):
-    
+    profile_data = Profile.objects.first()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -99,7 +103,15 @@ def contact(request):
     else:
         form = ContactForm()
 
-    return render(request, 'contact.html', {'form': form})
+    context = {
+        'form': form,
+        'profile_data': profile_data,
+    }
+    return render(request, 'contact.html', context)
 
 def contact_success(request, success_message=None):
-    return render(request, 'contact_success.html')
+    profile_data = Profile.objects.first()
+    context = {
+        'profile_data': profile_data,
+    }
+    return render(request, 'contact_success.html', context)

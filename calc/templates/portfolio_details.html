@@ -1,68 +1,40 @@
 {% extends "base.html" %}
-{% load static %}
-
 {% block content %}
-
-  <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfolio Details</h2>
-          <ol>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li>Portfolio Details</li>
-          </ol>
-        </div>
-
-      </div>
-    </section><!-- End Breadcrumbs -->
-
+<main id="main">
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper">
-                <div class="swiper-wrapper align-items-center">
-                    {% for image in portfolio_item.images.all %}
-                    <div class="swiper-slide">
-                      <img src="{{ portfolio_item.image.url }}" alt="{{ portfolio_item.title }}">
-                  </div>
-                  
-                    {% endfor %}
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-8">
+                    <div class="portfolio-details-slider swiper">
+                        <div class="swiper-wrapper align-items-center">
+                            {% for image in portfolio_item.images.all %}
+                            <div class="swiper-slide">
+                                <img src="{{ image.image.url }}" alt="{{ portfolio_item.title }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="col-lg-4">
+                    <div class="portfolio-info">
+                        <h3>Project Information</h3>
+                        <ul>
+                            <li><strong>Category</strong>: {{ portfolio_item.category }}</li>
+                            <li><strong>Client</strong>: {{ portfolio_item.client }}</li>
+                            <li><strong>Project Date</strong>: {{ portfolio_item.project_date }}</li>
+                            <li><strong>Project URL</strong>: <a href="{{ portfolio_item.project_url }}">{{ portfolio_item.project_url }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="portfolio-description">
+                        <h2>{{ portfolio_item.title }}</h2>
+                        <p>{{ portfolio_item.description }}</p>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        
-
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Project Information</h3>
-              <ul>
-                <li><strong>Category</strong>: {{ portfolio_item.category }}</li>
-                <li><strong>Client</strong>: {{ portfolio_item.client }}</li>
-                <li><strong>Project Date</strong>: {{ portfolio_item.project_date }}</li>
-                <li><strong>Project URL</strong>: <a href="{{ portfolio_item.project_url }}">{{ portfolio_item.project_url }}</a></li>
-              </ul>
-            </div>
-            <div class="portfolio-description">
-              <h2>{{ portfolio_item.title }}</h2>
-              <p>{{ portfolio_item.description }}</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
     </section><!-- End Portfolio Details Section -->
-
-  </main><!-- End #main -->
-
+</main>
 {% endblock %}
+

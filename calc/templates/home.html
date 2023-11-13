@@ -2,12 +2,13 @@
 {% block content %}
 {% load static %}
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="background: url('backend3.png') top center; background-size: cover;">
     <div class="hero-container" data-aos="fade-in">
       <h1>Md Arif</h1>
-      <p>I'm <span class="typed" data-typed-items="Backend Developer, Lover Codeing,  "></span></p>
+      <p>I'm <span class="typed" data-typed-items="Backend Developer,lover codeing,  "></span></p>
     </div>
-  </section><!-- End Hero -->
+</section><!-- End Hero -->
+
 
   <main id="main">
 
@@ -62,28 +63,28 @@
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
             <div class="count-box">
               <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Happy Clients</strong> consequuntur quae</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="5">
             <div class="count-box">
               <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Projects</strong> adipisci atque cum quia aut</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="50">
             <div class="count-box">
               <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="140" data-purecounter-duration="1" class="purecounter"></span>
               <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="count-box">
               <i class="bi bi-people"></i>
               <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
@@ -101,279 +102,227 @@
   <div class="container">
     <div class="section-title">
       <h2>Skills</h2>
-      <p></p>
+      <p>What I Offer</p>
     </div>
 
     <div class="row skills-content">
-      {% for skill in skills_data %}
-      <div class="col-lg-6" data-aos="fade-up">
-        <div class="skill-item">
-          <img src="{{ skill.icon_image.url }}" alt="{{ skill.name }} Icon" class="skill-icon">
-          <div class="skill-info">
-            <span class="skill-name">{{ skill.name }}</span>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: {{ skill.percentage }}%;" aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
-              <span class="progress-val">{{ skill.percentage }}%</span>
+      {% if skills_data %}
+        {% for skill in skills_data %}
+          <div class="col-lg-6" data-aos="fade-up">
+            <div class="skill-item">
+              <img src="{{ skill.icon_image.url }}" alt="{{ skill.name }} Icon" class="skill-icon">
+              <div class="skill-info">
+                <span class="skill-name">{{ skill.name }}</span>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: {{ skill.percentage }}%;" aria-valuenow="{{ skill.percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <span class="progress-val">{{ skill.percentage }}%</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+      {% else %}
+        <p>No skills data available.</p>
+      {% endif %}
     </div>
   </div>
 </section>
 <!-- End Skills Section -->
 
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p>I possess a strong interest in coding and am eager to develop new software. I am constantly seeking out new technology to enhance my abilities. I have successfully completed numerous projects. My background is in backend web development, and I am an expert in Python and the Django programming framework. Additionally, I have a prior experience in backend development for 3W Business private Limited.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Md Arif</h4>
-              <p><em>i love codeing</em></p>
-              <ul>
-                <li>Shyamoli, Dhaka, Bangladesh</li>
-                <li>(+880) 1955-685500</li>
-                <li>arifmahmudovi997@gmail.com</li>
-              </ul>
+      <!-- ======= Resume Section ======= -->
+      <section id="resume" class="resume">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>Resume</h2>
+            <p>I possess a strong interest in coding and am eager to develop new software. I am constantly seeking out new technology to enhance my abilities. I have successfully completed numerous projects. My background is in backend web development, and I am an expert in Python and the Django programming framework. Additionally, I have a prior experience in backend development for 3W Business private Limited.</p>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-up">
+              <h3 class="resume-title">Sumary</h3>
+              <div class="resume-item pb-0">
+                <h4>Md Arif</h4>
+                <p><em>i love codeing</em></p>
+                <ul>
+                  <li>Shyamoli, Dhaka, Bangladesh</li>
+                  <li>(+880) 1955-685500</li>
+                  <li>arifmahmudovi997@gmail.com</li>
+                </ul>
+              </div>
+  
+              <h3 class="resume-title">Education</h3>
+              <div class="resume-item">
+                <h4>B.SC &amp; Computer Science & Engineering</h4>
+                <h5>2017 - 2022</h5>
+                <p><em>Satarkul, Badda, Dhaka-1212, Bangladesh</em></p>
+                <p>CGPA - 3.1</p>
+              </div>
+              <div class="resume-item">
+                <h4>Higher Secondary &amp; Tazomuddin Collage</h4>
+                <h5>2014 - 2017</h5>
+                <p><em>HAT SHOSHIGONG,TAZUMUDDIN, BHOLA, Bangladesh</em></p>
+                <p>CGPA - 3.75</p>
+              </div>
+              <div class="resume-item">
+                <h4>Secondary School &amp; Shambhupur Secondary School</h4>
+                <h5>2012 - 2013</h5>
+                <p><em>Khaser Hat, Shambhupur, Tazomuddin, BHOLA, Bangladesh</em></p>
+                <p>CGPA - 3.75</p>
+              </div>
             </div>
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>B.SC &amp; Computer Science & Engineering</h4>
-              <h5>2017 - 2022</h5>
-              <p><em>Satarkul, Badda, Dhaka-1212, Bangladesh</em></p>
-              <p>CGPA - 3.1</p>
-            </div>
-            <div class="resume-item">
-              <h4>Higher Secondary &amp; Tazomuddin Collage</h4>
-              <h5>2014 - 2017</h5>
-              <p><em>HAT SHOSHIGONG,TAZUMUDDIN, BHOLA, Bangladesh</em></p>
-              <p>CGPA - 3.75</p>
-            </div>
-            <div class="resume-item">
-              <h4>Secondary School &amp; Shambhupur Secondary School</h4>
-              <h5>2012 - 2013</h5>
-              <p><em>Khaser Hat, Shambhupur, Tazomuddin, BHOLA, Bangladesh</em></p>
-              <p>CGPA - 3.75</p>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Professional Experience</h3>
+              <div class="resume-item">
+                <h4>Backend Developer </h4>
+                <h5>Worked – 6’th March to 4’th June-2023
+                </h5>
+                <p><em>3W Business private Limited
+                </em></p>
+                <p><em>UTTAR PRADESH, INDIA 
+                </em></p>
+                <ul>
+                  
+                </ul>
+              </div>
+              <div class="resume-item">
+                <h4>– Audit Associate</h4>
+                <h5>Worked – 9’th October 2021 – 20’th June 2022</h5>
+                <p><em>Masih Muhith Haque & Co.</em></p>
+                <p><em>Level 13, UTC Building, 8, Panthapath, Dhaka 1215</em></p>
+                <ul>
+                  
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Backend Developer </h4>
-              <h5>Worked – 6’th March to 4’th June-2023
-              </h5>
-              <p><em>3W Business private Limited
-              </em></p>
-              <p><em>UTTAR PRADESH, INDIA 
-              </em></p>
-              <ul>
-                <li></li>
-                <li> </li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>– Audit Associate</h4>
-              <h5>Worked – 9’th October 2021 – 20’th June 2022</h5>
-              <p><em>Masih Muhith Haque & Co.</em></p>
-              <p><em>Level 13, UTC Building, 8, Panthapath, Dhaka 1215</em></p>
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>
-          </div>
+  
         </div>
-
-      </div>
-    </section><!-- End Resume Section --> 
+      </section><!-- End Resume Section -->
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio section-bg">
       <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p></p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          
-            <div class="col-lg-12 d-flex justify-content-center">
-              <ul id="portfolio-flters">
-                  <li data-filter="*" class="{% if selected_category == 'All' %}filter-active{% endif %}">
-                      <a href="?category=All">All</a>
-                  </li>
-                  {% for category in categories %}
-                      <li data-filter=".filter-{{ category|lower }}" class="{% if category == selected_category %}filter-active{% endif %}">
-                          <a href="?category={{ category|lower }}">{{ category }}</a>
+          <div class="section-title">
+              <h2>Portfolio</h2>
+              <p></p>
+          </div>
+          <div class="row" data-aos="fade-up">
+              <div class="col-lg-12 d-flex justify-content-center">
+                  <ul id="portfolio-flters">
+                      <li data-filter="*" class="{% if selected_category == 'All' %}filter-active{% endif %}">
+                          <a href="?category=All">All</a>
                       </li>
-                  {% endfor %}
-              </ul>
-            </div>
-
-
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-          {% for item in portfolio_items %}
-          <div class="col-lg-4 col-md-6 portfolio-item filter-{{ item.category|lower }}">
-            <div class="portfolio-wrap">
-              <img src="{{ item.image.url }}" class="img-fluid" alt="{{ item.title }}">
-              <div class="portfolio-links">
-                <a href="{{ item.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ item.title }}"><i class="bx bx-plus"></i></a>
-                <!-- Link to the detail page for each item -->
-                <a href="{% url 'portfolio_detail' item.pk %}" title="More Details"><i class="bx bx-link"></i></a>
+                      {% for category in categories %}
+                          <li data-filter=".filter-{{ category|lower }}" class="{% if category == selected_category %}filter-active{% endif %}">
+                              <a href="?category={{ category|lower }}">{{ category }}</a>
+                          </li>
+                      {% endfor %}
+                  </ul>
               </div>
-            </div>
           </div>
-          {% endfor %}
-        </div>
-
+          <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+              {% for item in portfolio_items %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-{{ item.category|lower }}">
+                  <div class="portfolio-wrap">
+                      {% for image in item.images.all %}
+                          <img src="{{ image.image.url }}" class="img-fluid" alt="{{ item.title }}">
+                      {% endfor %}
+                      <div class="portfolio-links">
+                          <a href="{{ item.images.first.image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{ item.title }}"><i class="bx bx-plus"></i></a>
+                          <!-- Link to the detail page for each item -->
+                          <a href="{% url 'portfolio_detail' item.pk %}" title="More Details"><i class="bx bx-link"></i></a>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
       </div>
-    </section><!-- End Portfolio Section -->
+  </section><!-- End Portfolio Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
-
-        <div class="section-title">
+     <!-- ======= Services Section ======= -->
+<section id="services" class="services">
+  <div class="container">
+      <div class="section-title">
           <h2>Services</h2>
-          <p></p>
-        </div>
-
-        <div class="row">
+          <p>What I Offer</p>
+      </div>
+      <div class="row">
+          <!-- Service Item 1: Web Development -->
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <div class="icon"><i class="bx bx-code"></i></div>
+              <h4 class="title"><a href="#">Web Development</a></h4>
+              <p class="description">
+                  I specialize in designing and developing responsive and user-friendly websites. From simple landing pages to complex web applications, I've got you covered.
+              </p>
           </div>
+          
+          <!-- Service Item 2: Database Design -->
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              <div class="icon"><i class="bx bx-database"></i></div>
+              <h4 class="title"><a href="#">Database Design</a></h4>
+              <p class="description">
+                  I create efficient and structured database solutions to manage your data effectively. From SQL to NoSQL, I tailor databases to suit your needs.
+              </p>
           </div>
+          
+          <!-- Service Item 3: Software Development -->
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <div class="icon"><i class="bx bx-code-block"></i></div>
+              <h4 class="title"><a href="#">Software Development</a></h4>
+              <p class="description">
+                  I build custom software applications that automate processes and solve unique business challenges. Your vision, my code.
+              </p>
           </div>
+          
+          <!-- Service Item 4: Web Design -->
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <div class="icon"><i class="bx bx-paint"></i></div>
+              <h4 class="title"><a href="#">Web Design</a></h4>
+              <p class="description">
+                  I create visually stunning and intuitive website designs that leave a lasting impression on your audience. Let's make your website stand out.
+              </p>
           </div>
+          
+          <!-- Service Item 5: Your Custom Service -->
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+              <div class="icon"><i class="bx bx-cog"></i></div>
+              <h4 class="title"><a href="#">Your Custom Service</a></h4>
+              <p class="description">
+                  Have a unique service or expertise to offer? Let's discuss how I can help you achieve your goals.
+              </p>
           </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-          </div>
-        </div>
-
       </div>
-    </section><!-- End Services Section -->
+  </div>
+</section><!-- End Services Section -->
 
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container">
+          <!-- Testimonials Section -->
+<section id="testimonials" class="testimonials section-bg">
+  <div class="container">
 
-        <div class="section-title">
+      <div class="section-title">
           <h2>Testimonials</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
+          <p>What My Clients Say</p>
       </div>
-    </section><!-- End Testimonials Section -->
+
+      <div class="owl-carousel testimonials-carousel" data-aos="fade-up">
+
+          <!-- Testimonial 1 -->
+          <div class="testimonial-item">
+              <p>
+                  "Working with Md Arif has been an absolute pleasure. Their expertise in backend development is unparalleled. They developed a robust web application for our company, and the results were outstanding. I highly recommend Md Arif for any development project."
+              </p>
+              <img src="{% static 'assets/img/testimonials/3w business.png' %}" class="testimonial-img" alt="Client 1">
+              <h3>Himanshu Singh</h3>
+              <h4>CEO, 3W Business Private Limited (3BPL)</h4>
+          </div>
+
+          
+      </div>
+
+  </div>
+</section>
+<!-- End Testimonials Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -381,7 +330,7 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Get in Touch</p>
         </div>
 
         <div class="row" data-aos="fade-in">
